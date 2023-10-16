@@ -1,0 +1,84 @@
+@import "/Users/boikun/Desktop/wecode/wecode-react-intro/public/variables.scss";
+
+@mixin imgSize {
+  width: 100px;
+  margin: 20px auto;
+}
+
+@mixin button {
+  width: 100%;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 197, 197);
+  padding: 18px 12px;
+}
+
+.buttonLogin {
+  @include button;
+  background-color: #0095f6;
+}
+
+.buttonLoginDisabled {
+  @include button;
+  background-color: #b2dffc;
+}
+
+.img1 {
+  @include imgSize;
+}
+
+.img2 {
+  @include imgSize;
+}
+
+.blank {
+  height: 100px;
+}
+
+.login {
+  width: 650px;
+  margin: 0px auto;
+  margin-top: 250px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(228, 212, 212);
+  padding: 18px 12px;
+}
+
+input::placeholder {
+  color: rgb(204, 185, 185);
+}
+
+.loginBtn {
+  @include button;
+  margin-top: 10px;
+}
+
+.btag {
+  display: flex;
+  /* flex-direction:row; */
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 30px;
+}
+
+.logbut {
+  background-color: white;
+  font-size: 20px;
+  border: none;
+  color: black;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}

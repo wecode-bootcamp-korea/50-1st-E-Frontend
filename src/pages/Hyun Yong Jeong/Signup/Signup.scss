@@ -1,0 +1,99 @@
+@mixin button {
+  width: 100%;
+  color: white;
+  font-size: 16px;
+  background-color: rgb(94, 94, 250);
+  margin-bottom: 0px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 197, 197);
+  padding: 18px 12px;
+}
+
+@mixin includeText {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(228, 212, 212);
+  padding: 18px 12px;
+}
+
+.info {
+  width: 100%;
+  margin: 0px auto;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+input {
+  width: 100%;
+  @include includeText;
+}
+input::placeholder {
+  color: rgb(204, 185, 185);
+}
+
+.button2 {
+  @include button;
+  margin-top: 30px;
+}
+
+.goleft {
+  right: 10px;
+  color: rgb(208, 194, 194);
+}
+
+#must {
+  color: red;
+}
+
+span {
+  position: absolute;
+}
+
+p {
+  color: rgb(50, 45, 45);
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.item {
+  width: 100%;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.phone {
+  display: flex;
+  flex-direction: raw;
+  justify-content: space-between;
+}
+
+.num {
+  width: 98%;
+  @include includeText;
+}
+
+.year {
+  width: 100%;
+  @include includeText;
+}
+
+.month {
+  width: 100%;
+  @include includeText;
+}
+
+.day {
+  width: 100%;
+  @include includeText;
+}
+
+.dob {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+* {
+  box-sizing: border-box;
+}
