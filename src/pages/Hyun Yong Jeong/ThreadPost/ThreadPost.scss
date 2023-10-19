@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  width: 576px;
+  height: 700px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.publish {
+  gap: 24px;
+  display: flex;
+  width: 528px;
+  height: 686px;
+  padding-bottom: 20px;
+  margin: 40 24 0 24;
+}
+
+.cotent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.textinput {
+  border: 1px solid;
+  display: flex;
+  padding: 15px 307px 617px 16px;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-top: 10px;
+
+  // padding: 15px 307px 617px 16px;
+}
+
+.action2 {
+  display: flex;
+  padding-top: 30px;
+  justify-content: space-between;
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.button1 {
+  display: flex;
+  width: 120px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #2d71f7;
+  background: #fff;
+}
+
+.button2 {
+  display: flex;
+  width: 120px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #2d71f7;
+}
+
+// .picbox {
+//   position: absolute;
+//   top: 0;
+//   left: 24px;
+// }
+
+// .propic {
+// }
+
+.username {
+  color: #000;
+  /* Name_Desktop */
+  font-family: Apple SD Gothic Neo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+// NESTING 햬야합니다!!!!!
