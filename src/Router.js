@@ -6,6 +6,7 @@ import Signup from './pages/Hyun Yong Jeong/Signup/Signup';
 import SignupComplete from './pages/Hyun Yong Jeong/SignupComplete/SignupComplete';
 import ThreadList from './pages/Hyun Yong Jeong/ThreadList/ThreadList';
 import ThreadPost from './pages/Hyun Yong Jeong/ThreadPost/ThreadPost';
+import ThreadEdit from './pages/Hyun Yong Jeong/ThreadEdit/ThreadEdit';
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/signupComplete" element={<SignupComplete />} />
         <Route path="/threadPost" element={<ThreadPost />} />
         <Route path="/threadList" element={<ThreadList />} />
+        <Route path="/threadEdit" element={<ThreadEdit />} />
       </Routes>
     </BrowserRouter>
   );

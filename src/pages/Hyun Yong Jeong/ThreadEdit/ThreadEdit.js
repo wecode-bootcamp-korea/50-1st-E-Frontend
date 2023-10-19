@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './ThreadPost.scss';
+import './ThreadEdit.scss';
 import { useNavigate } from 'react-router-dom';
 
-const ThreadPost = () => {
+const ThreadEdit = () => {
   const navigate = useNavigate();
   const goTolist = () => {
     navigate('/threadList');
@@ -10,9 +10,9 @@ const ThreadPost = () => {
 
   const token = localStorage.getItem('token');
 
-  const [postcontent, setPostcontent] = useState([]);
+  const [editcontent, setEditcontent] = useState([]);
 
-  const postcont = () => {
+  const editcont = () => {
     fetch('http://10.58.52.92:8000/users/creatingPost', {
       method: 'POST',
       headers: {
@@ -20,7 +20,7 @@ const ThreadPost = () => {
         authorization: 'Bearer ' + token,
       },
       body: JSON.stringify({
-        content: postcontent,
+        content: editcontent,
       }),
     })
       .then((response) => response.json())
@@ -33,9 +33,9 @@ const ThreadPost = () => {
 
   return (
     <div>
-      <div className="container">
-        <div className="publish">
-          <div className="propic">
+      <div className="container2">
+        <div className="publish2">
+          <div className="propic2">
             <img
               width={48}
               height={48}
@@ -43,32 +43,32 @@ const ThreadPost = () => {
               src="img/wecode_symbol_1.png"
             />
           </div>
-          <div className="content">
-            <div className="username">
+          <div className="content2">
+            <div className="username2">
               <div>사용자 ID</div>
             </div>
 
-            <div className="textarea">
+            <div className="textarea2">
               <div>
                 <input
-                  className="textinput"
-                  onChange={(event) => setPostcontent(event.target.value)}
+                  className="textinput2"
+                  onChange={(event) => setEditcontent(event.target.value)}
                   type="posting"
-                  placeholder="스레드를 시작하세요"
+                  placeholder="내용 수정하기"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div className="action2">
+        <div className="action3">
           <div>
-            <button className="button1" onClick={goTolist}>
+            <button className="_button1" onClick={goTolist}>
               취소
             </button>
           </div>
 
           <div>
-            <button className="button2" onClick={postcont}>
+            <button className="_button2" onClick={editcont}>
               게시
             </button>
           </div>
@@ -78,4 +78,4 @@ const ThreadPost = () => {
   );
 };
 
-export default ThreadPost;
+export default ThreadEdit;
