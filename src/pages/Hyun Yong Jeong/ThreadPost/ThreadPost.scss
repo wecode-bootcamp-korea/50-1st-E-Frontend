@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  width: 576px;
+  height: 878px;
+  padding: 40px 0px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.publish {
+  display: flex;
+  padding-bottom: 0px;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.cotent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.textarea {
+  display: flex;
+  padding: 15px 307px 617px 16px;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.picbox {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  stroke-width: 1px;
+  stroke: #e0e0e0;
+}
+
+.propic {
+  border-radius: 48px;
+}
+
+.username {
+  color: #000;
+  /* Name_Desktop */
+  font-family: Apple SD Gothic Neo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

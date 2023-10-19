@@ -4,7 +4,7 @@ import './Login.scss';
 import { useState } from 'react';
 
 const Login = () => {
-  const [userId, saveUserId] = useState('');
+  const [userEmail, saveUserEmail] = useState('');
   const [userPassword, saveUserPassword] = useState('');
   const navigate = useNavigate();
 
@@ -15,7 +15,36 @@ const Login = () => {
     navigate('/Signup');
   };
 
-  const isInputValid = userId.includes('@') && userPassword.length >= 5;
+  const isInputValid = userEmail.includes('@') && userPassword.length >= 5;
+
+  const doFetch1 = () => {
+    fetch('http://10.58.52.92:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: userEmail,
+        passoword: userPassword,
+      }),
+    })
+      .then((response) => response.json())
+
+      .then((data) => {
+        if (data.message === '로그인 성공!') {
+          localStorage.setItem('token', data.token);
+          navigate('/threadPost');
+        } else if (data.message === '로그인 정보 불일치!') {
+          alert('가입되지 않은 이메일 입니다.');
+          navigate('/');
+        }
+        // } else if (data.message === 'WRONG_PASSWORD') {
+        //   alert('비밀번호가 틀렸습니다.');
+        //   navigate('/');
+        // }
+        console.log(data);
+      });
+  };
 
   return (
     <>
@@ -31,7 +60,7 @@ const Login = () => {
       <div className="login">
         <div className="inputwrap">
           <input
-            onChange={(event) => saveUserId(event.target.value)}
+            onChange={(event) => saveUserEmail(event.target.value)}
             type="email"
             placeholder="이메일"
           />
@@ -47,7 +76,7 @@ const Login = () => {
         <div className="inputwrap">
           <button
             type="button"
-            onClick={goToMain}
+            onClick={doFetch1}
             className={isInputValid ? 'buttonLogin' : 'buttonLoginDisabled'}
             disabled={isInputValid ? false : true}
           >

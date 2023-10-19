@@ -1,13 +1,51 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [userEmail, saveUserEmail] = useState('');
+  const [userPassword, saveUserPassword] = useState('');
 
   const goToLogin = () => {
     navigate('/');
   };
+
+  const goTosigninComplete = () => {
+    navigate('/signupComplete');
+  };
+
+  const doFetch2 = () => {
+    fetch('http://10.58.52.92:8000/users/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: userEmail,
+        passoword: userPassword,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert('성공입니다.');
+        navigate('/signupComplete');
+        console.log(data);
+      });
+  };
+
+  const isInputValid =
+    userEmail.includes('@') &&
+    userEmail.includes('.') &&
+    userPassword.length >= 10;
+
+  useEffect(() => {
+    alert(
+      '이메일은 "@" 와 "." 을 포함하며, 비밀번호는 10자리 이상이어야 합니다.',
+    );
+  }, []);
 
   return (
     <>
@@ -28,11 +66,19 @@ const Signup = () => {
       <div className="info">
         <div className="inputwrap">
           {' '}
-          <input type="email" placeholder="이메일" />{' '}
+          <input
+            onChange={(event) => saveUserEmail(event.target.value)}
+            type="email"
+            placeholder="이메일"
+          />{' '}
         </div>
         <div className="inputwrap">
           {' '}
-          <input type="password" placeholder="비밀번호" />{' '}
+          <input
+            onChange={(event) => saveUserPassword(event.target.value)}
+            type="password"
+            placeholder="비밀번호"
+          />{' '}
         </div>
         <div className="inputwrap">
           {' '}
@@ -40,7 +86,7 @@ const Signup = () => {
         </div>
       </div>
       <div>
-        <span>닉네임과 프로필 이미지</span>
+        <span>닉네임 </span>
         <span className="goleft">선택사항</span>
       </div>
       <div className="info">
@@ -119,7 +165,14 @@ const Signup = () => {
           </select>
         </div>
       </div>
-      <button className="button2"> 회원 가입 </button>{' '}
+      <button
+        onClick={doFetch2}
+        className={isInputValid ? 'buttonLogin' : 'buttonLoginDisabled'}
+        disabled={isInputValid ? false : true}
+      >
+        {' '}
+        회원 가입{' '}
+      </button>{' '}
     </>
   );
 };
