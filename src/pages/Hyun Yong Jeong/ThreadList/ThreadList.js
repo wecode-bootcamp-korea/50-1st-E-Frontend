@@ -3,7 +3,6 @@ import './ThreadList.scss';
 import { useNavigate } from 'react-router-dom';
 
 const ThreadList = () => {
-  const nowDate = new Date();
   const navigate = useNavigate();
   const goToPost = () => {
     navigate('/threadPost');
