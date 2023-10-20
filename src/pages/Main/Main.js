@@ -1,14 +1,34 @@
 import React from 'react';
 import './Main.scss';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Main = () => {
   const navigate = useNavigate();
-
   const goToLogin = () => {
     navigate('/');
   };
-
+  /////////////////////////////////////////////////////////////////
+  const [userEmail, setUserEmail] = useState('');
+  const [userPwd, setUserPwd] = useState('');
+  const doFetch = () => {
+    fetch('http://10.58.52.94:8000/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: userEmail,
+        password: userPwd,
+      }),
+    })
+      .then((res) => {
+        const result = res.json();
+        console.log(result);
+      })
+      .then((data) => console.log(data));
+  };
+  /////////////////////////////////////////////////////////////////
   return (
     <div className="main">
       <button className="back" type="button" onClick={goToLogin}>
@@ -21,8 +41,16 @@ const Main = () => {
         <div className="required">필수 사항</div>
       </div>
       <div className="input_main">
-        <input type="text" placeholder="이메일"></input>
-        <input type="text" placeholder="비밀번호"></input>
+        <input
+          onChange={(event) => setUserEmail(event.target.value)}
+          type="text"
+          placeholder="이메일"
+        ></input>
+        <input
+          onChange={(event) => setUserPwd(event.target.value)}
+          type="text"
+          placeholder="비밀번호"
+        ></input>
         <input type="text" placeholder="비밀번호 확인"></input>
       </div>
       <div className="profileimage">
@@ -59,11 +87,10 @@ const Main = () => {
           <option>1일</option>
         </select>
       </div>
-      <button className="signup" type="button">
+      <button onClick={doFetch} className="signup" type="button">
         회원 가입
       </button>
     </div>
   );
 };
-
 export default Main;
