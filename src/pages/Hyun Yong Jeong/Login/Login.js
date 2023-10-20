@@ -18,34 +18,30 @@ const Login = () => {
   const isInputValid = userEmail.includes('@') && userPassword.length >= 5;
 
   const doFetch1 = () => {
-    fetch('http://10.58.52.92:8000/login', {
+    fetch('http://10.58.52.202:8000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
         email: userEmail,
-        passoword: userPassword,
+        password: userPassword,
       }),
     })
       .then((response) => response.json())
-
       .then((data) => {
-        if (data.message === '로그인 성공!') {
+        if (data.message === 'LOGIN_SUCCESS') {
           localStorage.setItem('token', data.token);
           navigate('/threadPost');
-        } else if (data.message === '로그인 정보 불일치!') {
+        } else if (data.message === 'EMAIL_NOT_FOUND') {
           alert('가입되지 않은 이메일 입니다.');
           navigate('/');
+        } else if (data.message === 'WRONG_PASSWORD') {
+          alert('비밀번호가 틀렸습니다.');
+          navigate('/');
         }
-        // } else if (data.message === 'WRONG_PASSWORD') {
-        //   alert('비밀번호가 틀렸습니다.');
-        //   navigate('/');
-        // }
-        console.log(data);
       });
   };
-
   return (
     <>
       <div className="blank">
@@ -94,5 +90,4 @@ const Login = () => {
     </>
   );
 };
-
 export default Login;

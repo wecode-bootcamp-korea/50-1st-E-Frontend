@@ -18,14 +18,14 @@ const Signup = () => {
   };
 
   const doFetch2 = () => {
-    fetch('http://10.58.52.92:8000/users/sign-up', {
+    fetch('http://10.58.52.202:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
         email: userEmail,
-        passoword: userPassword,
+        password: userPassword,
       }),
     })
       .then((res) => res.json())

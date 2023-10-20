@@ -13,7 +13,7 @@ const ThreadPost = () => {
   const [postcontent, setPostcontent] = useState([]);
 
   const postcont = () => {
-    fetch('http://10.58.52.92:8000/users/creatingPost', {
+    fetch('http://10.58.52.202:8000/threads/addpost', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -21,6 +21,7 @@ const ThreadPost = () => {
       },
       body: JSON.stringify({
         content: postcontent,
+        authorization: token,
       }),
     })
       .then((response) => response.json())

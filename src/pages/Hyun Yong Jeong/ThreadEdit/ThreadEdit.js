@@ -21,6 +21,7 @@ const ThreadEdit = () => {
       },
       body: JSON.stringify({
         content: editcontent,
+        authorization: token,
       }),
     })
       .then((response) => response.json())
